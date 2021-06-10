@@ -3,26 +3,20 @@
 # 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 # 数列の項の値が400以下のとき, 値が偶数の項の総和を求めよ.
 
+target_count = 400
+
 def fibonacci(n)
-  if n <= 2
-    return n
-  else
-    return fibonacci(n - 2) + fibonacci(n -1)
-  end
+  (n <= 2) ? n : (fibonacci(n - 2) + fibonacci(n -1))
 end
 
 array = []
 
-20.times do |n|
-  array << fibonacci(n)
+1.step do |n|
+  f = fibonacci(n)
+  break if f > target_count
+  array << f
 end
 
-even_num = []
-
-array.each do |num|
-  if num % 2 == 0
-    even_num << num
-  end
-end
+even_num = array.select{ |num| num.even? }
 
 puts even_num.sum
