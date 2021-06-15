@@ -5,7 +5,7 @@ require 'prime'
 
 prime_array = []
 
-Prime.each(200000) do |prime|
+Prime.each(2_000_000) do |prime|
   prime_array << prime
 end
 
